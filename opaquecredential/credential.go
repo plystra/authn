@@ -104,10 +104,18 @@ type Result struct {
 	Replacement Digest
 }
 
-// NewKey copies 32-64 key bytes, so callers may clear their provisioning buffer.
-// Key entropy/provisioning and process-memory lifecycle remain caller concerns.
+// NewKey copies 32-64 key bytes and rejects all-zero material. Callers may clear
+// their provisioning buffer; key entropy and process-memory lifecycle remain
+// caller concerns.
 func NewKey(ref KeyRef, material []byte) (Key, error) {
 	if !validRef(ref) || len(material) < MinKeyBytes || len(material) > MaxKeyBytes {
+		return Key{}, ErrInvalidKey
+	}
+	var present byte
+	for _, value := range material {
+		present |= value
+	}
+	if present == 0 {
 		return Key{}, ErrInvalidKey
 	}
 	k := Key{ref: ref, length: uint8(len(material))}
