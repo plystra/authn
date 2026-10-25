@@ -9,15 +9,19 @@
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
         "compatibility:interface-documentation",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -36,15 +40,19 @@
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
         "compatibility:interface-javascript:sha256:ac1559747ce3d5003afe65d941bd111c7fc5c7aac552210707af224f6f9cff57",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -57,21 +65,25 @@
     },
     {
       "path": "generated/compatibility/interface-metadata.json",
-      "sha256": "sha256:a3083f785c474157038d7480103c911f5d9069d83d862773bf88ea281ebd48cc",
+      "sha256": "sha256:4fb3d0fecaefc17a6ed3f7bdb4d9d1c4487fb05dc16d194a7b2f07d174e769a5",
       "generator": "plystra.interface-compatibility/v1",
       "output_kind": "compatibility-working-record",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
-        "compatibility:interface-metadata:sha256:bb4211882f90e5a9da55f240c4376f912bdb238ba6611bb36587afa4461ee873",
+        "compatibility:interface-metadata:sha256:86dad8a864fee6af764a45bdf20aa1990bdbe640ea5b7c2418ecd8bcc18721d9",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -90,15 +102,19 @@
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
         "compatibility:interface-transport:sha256:a04f0f29744f2523288b8367997e05cde4756c4d50ce70ffd49e2329e87e6a8c",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -111,21 +127,25 @@
     },
     {
       "path": "generated/compatibility/interfaces.json",
-      "sha256": "sha256:4b55d8c33486170783fd353c7fb1981b0dbd3b3b41952e6ee8b2def4123aaa2f",
+      "sha256": "sha256:6df1fdb088b8f698bc358ce62598b23df7bd7c0c63fd112327d09bd46d8e8a93",
       "generator": "plystra.interface-compatibility/v1",
       "output_kind": "compatibility-working-record",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
-        "compatibility:interface-shape:sha256:fb3f135d4d0f3d717cc46c840fcdd0381b2f2d4cc87c0b9614e2ec20b17625a4",
+        "compatibility:interface-shape:sha256:9e485576a9be90d4c62300c8b5a8d186cf2f7435f8e0d3fea29054bd08baaee6",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -143,15 +163,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -169,15 +193,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -195,15 +223,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -221,15 +253,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -247,15 +283,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -273,15 +313,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -299,15 +343,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -325,15 +373,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -351,15 +403,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -377,15 +433,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -403,15 +463,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -429,15 +493,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -455,15 +523,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -481,15 +553,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -507,15 +583,19 @@
       "output_kind": "go-source",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -528,21 +608,25 @@
     },
     {
       "path": "generated/manifest.json",
-      "sha256": "sha256:92374163043123dc66820e66c78e76b9921cd857c10acb66d3880eb85bba5445",
+      "sha256": "sha256:e4413c82b0e51db40292f2e18393e394ce3f2361736587e27dba03dbf5558dd2",
       "generator": "plystra.application-manifest/v1",
       "output_kind": "application-manifest",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
         "configuration-selection:default:plystra.yaml:sha256:5c0211261016b06ca54c477ba423f1dcd3e2a645bb1d2498cf62cb078e9b6a41",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -560,15 +644,19 @@
       "output_kind": "protobuf-descriptor",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -581,21 +669,25 @@
     },
     {
       "path": "generated/proto/wire-map.json",
-      "sha256": "sha256:291fb979cc47f081f48f964b9addaace1aa6dc1c7fb03bb29d16794509461183",
+      "sha256": "sha256:fcb4a96fc8b55b662164a16590436035167f621539572ddfd2a93e560e5c745a",
       "generator": "plystra.proto-wire-map/v5",
       "output_kind": "wire-map",
       "input_record_ids": [
         "application-model:sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16",
+        "interface-contract:authn.session.verify/v1:sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
         "interface-contract:kernel.health/v1:sha256:ca84c09091802ac047f779c4a63468b09d4c6677e989a0bad96fcd2978a79e53",
         "interface-contract:kernel.info/v1:sha256:3b6011915de82ca6e5e12027ba644a3d24ff765e4f443be871538bc7ae023fa9",
-        "interface-provenance:sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4",
+        "interface-provenance:sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea",
+        "interface:authn.session.verify/v1",
         "interface:kernel.health/v1",
         "interface:kernel.info/v1",
-        "protobuf-wire-map:sha256:291fb979cc47f081f48f964b9addaace1aa6dc1c7fb03bb29d16794509461183",
+        "protobuf-wire-map:sha256:fcb4a96fc8b55b662164a16590436035167f621539572ddfd2a93e560e5c745a",
         "transport-toolchain:sha256:8df621ec95193e166bc083d5990ca1835bf20abbe8efeb5ab52be3c9db472d31"
       ],
       "sources": [
         "built-in Plystra default Interface invocation policy",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+        "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
         "github.com/plystra/kernel/interfaces/kernel/health/v1 //plystra:interface kernel.health/v1",
         "github.com/plystra/kernel/interfaces/kernel/info/v1 //plystra:interface kernel.info/v1",
         "github.com/plystra/kernel@v0.0.0-20261004024423-1e554d6f14ac/interfaces/kernel/health/v1/interface.go:11:1",
@@ -638,12 +730,25 @@
       "dormant_implementation_selections_digest": "sha256:f781509b1c7204b29c108dddeaeba732605c9ea41e0412205c03777d995e6681",
       "dormant_constructor_configurations": [],
       "dormant_constructor_configurations_digest": "sha256:2c55f3bad8a359bcfc8f72af010d653ec12eba9785a3e73b7b92b988cb80ca41",
-      "protobuf_wire_map_digest": "sha256:291fb979cc47f081f48f964b9addaace1aa6dc1c7fb03bb29d16794509461183",
+      "protobuf_wire_map_digest": "sha256:fcb4a96fc8b55b662164a16590436035167f621539572ddfd2a93e560e5c745a",
       "application_model_digest": "sha256:2aa08a1a3e06c6b12bfa8a60adf6a61baae65409fb01d62fb1adb97bd9efaa16"
     },
     "interface_provenance": {
       "schema": "plystra.interface-provenance/v3",
-      "interfaces": [],
+      "interfaces": [
+        {
+          "id": "authn.session.verify/v1",
+          "package_path": "github.com/plystra/authn/interfaces/authn/session/verify/v1",
+          "module_path": "github.com/plystra/authn",
+          "module_version": "local",
+          "directive_source": "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.go:10:1",
+          "metadata_source": "github.com/plystra/authn@local/interfaces/authn/session/verify/v1/interface.yaml",
+          "shape_digest": "sha256:c56b158c049fd67239c97e5a7b37c80d92f41d5e2ac545dfa36744b63a12b7fa",
+          "contract_digest": "sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
+          "documentation_digest": "sha256:1b658a85674467421bc1067b8de9eebe8d9616dbf51550849491bba2a69f20bc",
+          "example_digest": "sha256:502f64b924cfbd3062e05b3de5bebd4187053f29f10727c8a73a2ed74f430886"
+        }
+      ],
       "bindings": [],
       "constructors": [],
       "intrinsics": [
@@ -732,7 +837,7 @@
           "mappings": {}
         }
       ],
-      "digest": "sha256:c2b5f5ea8156665f0d252514e77795ee37db96abe7e7aaace937665fc26671b4"
+      "digest": "sha256:5a921825844f74881d38ae74390ef27d0d543f3e4af9b8925f5e9e2e7bfc01ea"
     },
     "transport_toolchain": {
       "schema": "plystra.transport-toolchain/v2",

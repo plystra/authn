@@ -1,0 +1,35 @@
+description: Verifies the current request credential and returns bounded authentication facts; it does not create trusted context state.
+semantics:
+  kind: query
+errors:
+  - code: credential_missing
+    description: No usable credential was supplied.
+  - code: credential_ambiguous
+    description: More than one usable credential source was supplied.
+  - code: invalid_credentials
+    description: The credential could not be verified.
+  - code: account_disabled
+    description: The authenticated account is disabled.
+  - code: session_expired
+    description: The session has expired.
+  - code: session_revoked
+    description: The session has been revoked.
+constraints:
+  response.issuer:
+    min_length: 1
+    max_length: 256
+  response.subject_kind:
+    pattern: '^(user|service)$'
+  response.subject_id:
+    min_length: 1
+    max_length: 256
+  response.session_id:
+    min_length: 1
+    max_length: 256
+  response.audience:
+    min_length: 1
+    max_length: 256
+  response.subject_revision:
+    minimum: 1
+  response.session_revision:
+    minimum: 1
