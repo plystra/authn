@@ -34,7 +34,7 @@ import (
 )
 
 const (
-	compiledRuntimeContract = "sha256:c73090f9be516c7dd1e67ea6a12a083eab363e7e74ccc7e24098f52da19115d1"
+	compiledRuntimeContract = "sha256:5e5e857a7e9f937c9e43647202d57c47acd5b2b6c3f3522fc4bd63831346f9df"
 	defaultRuntimeDocument  = "plystra.yaml"
 	defaultStartupTimeout   = time.Duration(120000000000)
 	// compiledApplicationModelCompatibilityJSON records the non-secret YAML projection associated with the complete compiled model.
