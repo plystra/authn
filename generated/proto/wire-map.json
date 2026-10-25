@@ -1,5 +1,65 @@
 {
   "projection_schema": "plystra.proto-wire-map/v5",
-  "interfaces": {},
+  "interfaces": {
+    "authn.session.verify/v1": {
+      "active": false,
+      "contract_digest": "sha256:c62b7f8bf37ba94e95ee51899ab7b2ea502967bb6b503a8568824756abfde426",
+      "protobuf_package": "plystra.generated.authn.session.verify.v1",
+      "service": "AuthnSessionVerifyV1Service",
+      "method": "Invoke",
+      "procedure": "/plystra.generated.authn.session.verify.v1.AuthnSessionVerifyV1Service/Invoke",
+      "request_message": "AuthnSessionVerifyV1Request",
+      "response_message": "AuthnSessionVerifyV1Response",
+      "messages": {
+        "AuthnSessionVerifyV1Request": {
+          "active": false,
+          "go_name": "Request",
+          "fields": {},
+          "reserved_numbers": [],
+          "reserved_names": []
+        },
+        "AuthnSessionVerifyV1Response": {
+          "active": false,
+          "go_name": "Response",
+          "fields": {
+            "audience": {
+              "go_name": "Audience",
+              "number": 5
+            },
+            "expires_at": {
+              "go_name": "ExpiresAt",
+              "number": 8
+            },
+            "issuer": {
+              "go_name": "Issuer",
+              "number": 1
+            },
+            "session_id": {
+              "go_name": "SessionID",
+              "number": 4
+            },
+            "session_revision": {
+              "go_name": "SessionRevision",
+              "number": 7
+            },
+            "subject_id": {
+              "go_name": "SubjectID",
+              "number": 3
+            },
+            "subject_kind": {
+              "go_name": "SubjectKind",
+              "number": 2
+            },
+            "subject_revision": {
+              "go_name": "SubjectRevision",
+              "number": 6
+            }
+          },
+          "reserved_numbers": [],
+          "reserved_names": []
+        }
+      }
+    }
+  },
   "legacy_capabilities": {}
 }
