@@ -1,0 +1,13 @@
+http:
+  address: ":8080"
+  expose: {}
+
+timeouts:
+  startup: 2m
+
+interfaces:
+  require: []
+  use: {}
+  policies: {}
+
+config: {}

@@ -1,0 +1,64 @@
+# Configuration and Secrets
+
+Use one selected current-Project configuration mode consistently.
+
+Root `plystra.yaml` is the Project marker. A selected environment overlay composes over that root, while a complete replacement document is used by itself and must carry its own Project marker. Dependencies contribute discoverable declarations only; their configuration is inactive.
+
+Remove exact interfaces.use, interfaces.policies, and http.expose entries only with {$remove: true} in an environment overlay. Null, empty values, false or string-valued markers, and sibling fields are invalid. Keep the authored tombstone even if no lower root value exists. Root and complete replacement documents reject tombstones. Regenerate and rebuild for runtime compatibility version 12. Remove http.cors or either of its fields with {$remove: true} in an overlay; null is invalid. Removing credentials restores false; an effective CORS object still requires origins.
+
+Remove a whole config.<constructor-symbol> entry only with {$remove: true}. Null, sequences, malformed markers, and sibling fields are invalid at that boundary; {} remains configuration, not removal. Keep whole exclusions even without lower configuration or an available old Config schema. Known-schema lower objects still receive typed validation; excluded unavailable-schema objects retain only value-free owner provenance. Inspection retains removal ownership and suppressed sources. Generated runtime loading strips whole-entry markers before construction, but removing required configuration still fails before any constructor runs.
+
+During typed CLI composition, remove a declared field inside a non-pointer fixed struct with {$remove: true}. Exclusions persist without lower values; an omitted overlay field keeps the root value. Literal null, ~, and blank values are atomic nil only for pointers, slices, and maps, distinct from removal and empty collections. Other compiled types reject null. Reserved singleton $remove mappings are invalid inside atomic values, including pointed-to struct members, list elements, and dynamic-map entries. A dynamic map with $remove and other keys remains an ordinary typed value.
+
+CLI and runtime typed normalization reject malformed scalar payloads before a nullable pointer, slice, or map can discard them. This includes selected root, environment, and replacement values and lower values hidden by later removals. Genuine null remains valid for nullable Go types.
+
+Required fields are checked after the selected root and, when present, environment overlay compose. Effective dormant objects and all active configurable constructors must be complete; dormant absent or removed objects need no values yet. Requiredness means presence: zero, empty, and schema-permitted nil values count. Omitted fixed structs and fixed-array elements still need nested required fields; absent or nil pointers and empty slices/maps have no child values to validate. PLYSTRA_CONSTRUCTOR_CONFIGURATION_VALUES_INVALID identifies a safe declared path and the selected current-Project document before mutation. Supply the missing field there or correct its overlay tombstone. Generated startup applies these rules and compiled scalar defaults after the selected layers compose. Startup validates effective dormant objects without activating constructors or resolving their Secrets.
+
+During typed CLI composition, a supplied non-null pointer field replaces its complete lower value, including pointers to structs and multiple pointer layers. Omission keeps the lower root value in an environment overlay; {} replaces a pointed-to struct without keeping omitted fields. Only non-pointer fixed structs compose field by field. Inspection retains one redacted atomic value and its sources. Generated runtime loading applies the same pointer replacement rules to selected current-Project layers.
+
+An interfaces.require sequence replaces the complete lower explicit requirement set; [] clears it. In an environment overlay, omission and {} keep the root set, while {add: [...], remove: [...]} changes only named members. Root and complete replacement documents reject sparse requirement forms. Exposure, constructor dependencies, and intrinsic Kernel requirements remain independent. Inspection and explanation retain suppressed sources. Generated runtime compatibility version 12 compares effective current-Project requirements, reachable selections, and policies after overlay replacements and removals.
+
+The public runtime contract binds the selected current-Project model and its exact generated identity. Private values and their hashes never enter public output.
+
+Validated Secret fields exclude reference kind and target from public identity. Changing an environment or file reference leaves generated output and inspection unchanged, including nested and dormant configuration. Later overlay values or tombstones replace lower references. Public provenance never exposes private reference equality. Generation compares private root, selected-document, and dependency snapshots to detect concurrent edits and preserve their source.
+
+Validated runtime-only constructor values exclude contents from public identity. A build-visible tag includes the whole value and descendants; otherwise only tagged descendants contribute. Entirely private atomic pointers, lists, arrays, and maps hide keys, contents, cardinality, and nil/empty differences. Mixed containers retain positions, keys, order, and nullness needed to locate public descendants, excluding private siblings. Declared field presence, sources, and tombstones remain provenance. Layer order determines ownership without publishing private equality. Build-visible edits cause public generation drift; startup checks effective build-visible values after selected current-project layers and defaults compose.
+
+Current-Project http.address and timeouts.startup values are runtime-only and absent from public hashes. Valid value edits preserve generated output, inspection, and explanation; presence, type, source, and removal intent remain provenance. Private snapshots detect concurrent edits. Startup loads the selected timeout without regeneration. CORS, exposure, and invocation policies remain build-affecting and still require regeneration when changed.
+
+Public configuration type descriptions omit raw anonymous-struct tags, including containers and generic arguments. Nested defaults stay out of logs, diagnostics, and public value hashes. Compiled field names, policy, default presence, and private default access remain intact. A public type description is not a complete schema or Go assignment identity. Authored Go default changes still require a rebuild; current-project startup applies defaults from the compiled Go type without copying private literals into generated source.
+
+## Select the document
+
+- No selector: root `plystra.yaml` only.
+- `--env production`: root plus one sparse project-root `plystra.production.yaml` overlay.
+- `--config deploy/customer-a.yaml`: one complete replacement document; root remains the Project marker.
+
+Use the same selector for mutation, generation, inspection, checking, and startup:
+
+    plystra generate --env production
+    plystra generate --check --env production
+    plystra inspect configuration --env production
+    plystra check --env production
+    go run ./generated/go/application --configuration-root . --runtime-baseline dist/runtime-baseline.json --env production
+
+Do not combine `--env` and `--config`. `PLYSTRA_ENV` and `PLYSTRA_CONFIG` supply the same selectors when explicit flags are absent.
+
+The generated binary requires --configuration-root <directory> and --runtime-baseline <path>. Generation and scaffolding create ignored dist/runtime-baseline.json with native owner-only permissions. Deploy it with the matching binary and preserve those permissions. Relative baseline and replacement paths resolve from the configuration root; an absolute baseline path may point to a separately deployed private file. Startup checks the public runtime contract, dependency module/version membership, and compiled constructor defaults before Secrets or constructors. Missing, malformed, publicly readable, or mismatched baselines fail with redacted recovery. Refresh the baseline with plystra generate after private-default edits and rebuild authored Go. Compatible private value edits require a refreshed baseline, without rebuilding the existing binary. Baseline bytes and private hashes never enter public generated artifacts. generate --check checks public output without creating private output. Root, overlay, and replacement documents use bounded confined reads and reject symbolic components. These runtime flags do not apply to the Plystra CLI. Named Resource instances receive typed configuration and Secrets through the same private baseline; complete gate acceptance remains unfinished.
+
+Generated bootstrap delivers selected current-Project constructor configuration through exact typed Config fields. It validates the complete scalar, struct, pointer, slice, array, map, and Secret value model, composes fixed structs by field, replaces atomic values, and preserves nil, empty, and removal distinctions. Requiredness and scalar defaults apply after composition. All active objects and effective build-visible values are checked before any Secret resolution or constructor entry. No custom YAML unmarshalling runs. Private defaults come from compiled Go tags and never enter generated source. Startup rejects invalid recompiled tag syntax, duplicate policy options, metadata on ignored or unexported fields, and invalid defaults even when runtime values override them. Correct the Go declaration, regenerate, and rebuild. Dormant objects create no runtime binding. Every selector validates the selected document against the private baseline.
+
+The private baseline carries every visible constructor's validated Interface membership and Config schema. Startup validates effective dormant objects without activating constructors or resolving their Secrets. Requiredness applies only when a dormant object exists. Dormant-only choice and value changes preserve executable output. Schema-inventory changes require a regenerated baseline and rebuilt binary; regenerate older pairs to include this validation inventory.
+
+Configuration values belong under the exact constructor-owned `config.<constructor-symbol>` object. Keep Secret values out of YAML, generated source, diagnostics, SDKs, and tests. A Secret field contains only a valid `env` or absolute `file` reference, and generation validates the reference without resolving its value.
+
+Authored static Interface timeout and replay-safe retry policies execute through the selected binding. Retry requires timeout and the explicit eligibility: replay_safe assertion about the binding and its downstream effects; safety is never inferred. max_attempts counts the first attempt, defaults to 2, and permits 2 through 16; backoff defaults to 0s and accepts nonnegative Go durations. One total budget starts before request validation and copying, is capped by an earlier caller deadline, and includes all attempts, backoff, and response processing. Each attempt receives a fresh copy of the original request snapshot and starts only after the previous target terminates. The outermost retry-enabled binding owns replay; nested bindings suppress their own retries. Only not_started resource exhaustion and result_known unavailable or resource exhaustion can retry. Semantic errors, cancellation, deadlines, internal or validation failures, and result_unknown never replay; exhaustion retains the final safe category, completion, and bounded attempt count. Without retry there is one attempt; without timeout there is no added deadline. Complete compiled policy values and literal schema/compiler/defaults versions are frozen before runtime; mismatches fail closed. Dormant policies remain intent outside executable identity until activation. Inspect capabilities reports support stages, exact defaults, and duration bounds. Authored concurrency, queue, and circuit forms remain unsupported. Transitional legacy Capability wrappers do not include preparation and completion in the Kernel budget; active authored policies on that path still fail with PLYSTRA_POLICY_NOT_ENFORCED. Capability discovery reports that exception as legacy.capability-timeout with executed=no and accepted=no.
+
+## Completion checks
+
+1. Inspect the selected layer and ownership with `plystra inspect configuration`.
+2. Regenerate with the same selector.
+3. Run `plystra generate --check` and `plystra check` with that selector.
+4. Confirm generated records contain no configuration values, Secret targets, resolved Secrets, or machine paths.
+
+See the [Project README](../../../../README.md) and `plystra generate --help`.
