@@ -1,0 +1,170 @@
+package access
+
+import (
+	"bytes"
+	"context"
+	"crypto/rand"
+	"errors"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/plystra/authn/accountstore"
+	"github.com/plystra/authn/passwordhash"
+	"github.com/plystra/data/database"
+	"github.com/plystra/data/postgres"
+	compiler "github.com/plystra/data/postgres/compiler"
+	"github.com/plystra/kernel/configuration"
+)
+
+func TestGeneratedAccountsPostgres(t *testing.T) {
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+	resolver, err := configuration.NewResolver(configuration.ResolverOptions{MaximumValueBytes: 4096})
+	if err != nil {
+		t.Fatal(err)
+	}
+	reference, err := configuration.NewEnvironmentReference("AUTHN_ACCOUNTSTORE_TEST_DATABASE_URL")
+	if err != nil {
+		t.Fatal(err)
+	}
+	secret, err := resolver.Resolve(ctx, reference)
+	if err != nil {
+		t.Fatal("disposable AUTHN_ACCOUNTSTORE_TEST_DATABASE_URL is required")
+	}
+	backend, err := postgres.New(postgres.Config{URL: secret, MaxConnections: 4, HealthTimeout: 5 * time.Second})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := backend.Start(ctx); err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() {
+		if err := backend.Stop(context.Background()); err != nil {
+			t.Error(err)
+		}
+	})
+	model, err := accountstore.Accounts.Normalize()
+	if err != nil {
+		t.Fatal(err)
+	}
+	const identity = "data/f1ea98fb38bf"
+	migrations, err := compiler.CompileMigrations([]compiler.SchemaMember{{MemberID: "authn.accounts/v1", Resource: "database.authn", Model: model}}, identity, compiler.MigrationHistory{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	approval, err := backend.MigrationPlan(ctx, identity, migrations)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := backend.ApplyMigrations(ctx, identity, approval.PlanDigest, migrations); err != nil {
+		t.Fatal(err)
+	}
+	provider, err := New(backend)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var resource accountstore.Resource = provider
+	if _, err := New(nil); !errors.Is(err, database.ErrUnavailable) {
+		t.Fatal("missing database Resource accepted")
+	}
+	hasher, err := passwordhash.New(passwordhash.Options{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	password := []byte("public generated provider test password; never a deployment secret")
+	phc, err := hasher.Hash(ctx, password)
+	if err != nil {
+		t.Fatal(err)
+	}
+	prefix := strings.ToLower(rand.Text())
+	request := func(suffix, email string) accountstore.StageRegistrationRequest {
+		return accountstore.StageRegistrationRequest{AccountID: prefix + "-" + suffix, OperationID: prefix + "-op-" + suffix,
+			NormalizedEmail: email, PasswordPHC: phc, RequestDigest: bytes.Repeat([]byte{9}, 32), NowUnix: time.Now().Unix()}
+	}
+	email := prefix + "+tag@example.test"
+	first := request("first", email)
+	output, err := resource.StageRegistration(ctx, first)
+	if err != nil || output.AccountID != first.AccountID || output.OperationID != first.OperationID || output.SubjectRevision != 1 {
+		t.Fatalf("typed plan outputs did not commit correctly: %v", err)
+	}
+	record, err := resource.FindRegistration(ctx, accountstore.FindRegistrationRequest{OperationID: first.OperationID})
+	if err != nil || record == nil || record.AccountID != first.AccountID || record.Status != "pending" || record.ProvisioningState != "pending-provisioning" || record.SubjectRevision != 1 || record.CreatedAtUnix != first.NowUnix || !bytes.Equal(record.RequestDigest, first.RequestDigest) {
+		t.Fatalf("typed reconciliation query lost facts: %v", err)
+	}
+	record.RequestDigest[0] ^= 255
+	record, err = resource.FindRegistration(ctx, accountstore.FindRegistrationRequest{OperationID: first.OperationID})
+	if err != nil || record == nil || !bytes.Equal(record.RequestDigest, first.RequestDigest) {
+		t.Fatal("request digest escaped storage ownership")
+	}
+	credential, err := resource.PasswordForEmail(ctx, accountstore.PasswordForEmailRequest{NormalizedEmail: email})
+	if err != nil || credential == nil || credential.AccountID != first.AccountID || credential.Status != "pending" || credential.ProvisioningState != "pending-provisioning" || credential.SubjectRevision != 1 || credential.ContactVerified || credential.CredentialRevision != 1 {
+		t.Fatalf("typed password query lost safety facts: %v", err)
+	}
+	match, err := hasher.Verify(ctx, password, credential.PasswordPHC)
+	if err != nil || !match.Match {
+		t.Fatal("typed password PHC does not verify")
+	}
+	duplicate := request("duplicate", email)
+	output, err = resource.StageRegistration(ctx, duplicate)
+	if !errors.Is(err, database.ErrConflict) || output != (accountstore.StageRegistrationResult{}) {
+		t.Fatal("duplicate email published a typed partial result")
+	}
+	missing, err := resource.FindRegistration(ctx, accountstore.FindRegistrationRequest{OperationID: duplicate.OperationID})
+	if err != nil || missing != nil {
+		t.Fatal("later contact conflict left an account")
+	}
+	output, err = resource.StageRegistration(ctx, first)
+	if !errors.Is(err, database.ErrConflict) || output != (accountstore.StageRegistrationResult{}) {
+		t.Fatal("operation replay silently succeeded")
+	}
+	if missing, err := resource.PasswordForEmail(ctx, accountstore.PasswordForEmailRequest{NormalizedEmail: prefix + "-absent@example.test"}); err != nil || missing != nil {
+		t.Fatal("zero-or-one missing query mismatch")
+	}
+
+	start := make(chan struct{})
+	type outcome struct {
+		request accountstore.StageRegistrationRequest
+		result  accountstore.StageRegistrationResult
+		err     error
+	}
+	outcomes := make(chan outcome, 2)
+	for _, suffix := range []string{"race-a", "race-b"} {
+		go func() {
+			candidate := request(suffix, prefix+"-race@example.test")
+			<-start
+			result, err := resource.StageRegistration(ctx, candidate)
+			outcomes <- outcome{candidate, result, err}
+		}()
+	}
+	close(start)
+	successes := 0
+	for range 2 {
+		item := <-outcomes
+		stored, err := resource.FindRegistration(ctx, accountstore.FindRegistrationRequest{OperationID: item.request.OperationID})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if item.err == nil {
+			successes++
+			if stored == nil || stored.AccountID != item.result.AccountID {
+				t.Fatal("concurrent typed success was not stored")
+			}
+		} else if (!errors.Is(item.err, database.ErrConflict) && !errors.Is(item.err, database.ErrConcurrent)) || item.result != (accountstore.StageRegistrationResult{}) || stored != nil {
+			t.Fatal("concurrent failure published a partial typed result")
+		}
+	}
+	if successes != 1 {
+		t.Fatalf("typed unique winners = %d", successes)
+	}
+	cancelled, stop := context.WithCancel(ctx)
+	stop()
+	candidate := request("cancelled", prefix+"-cancelled@example.test")
+	output, err = resource.StageRegistration(cancelled, candidate)
+	if err == nil || output != (accountstore.StageRegistrationResult{}) {
+		t.Fatal("cancelled typed call returned success")
+	}
+	if missing, err := resource.FindRegistration(ctx, accountstore.FindRegistrationRequest{OperationID: candidate.OperationID}); err != nil || missing != nil {
+		t.Fatal("cancelled typed call left an account")
+	}
+}
