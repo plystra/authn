@@ -187,6 +187,53 @@ func TestVerificationCancellation(t *testing.T) {
 	}
 }
 
+func TestVerificationPreservesUncertainty(t *testing.T) {
+	secret := errors.New("private-uncertainty-canary")
+	for _, cancelAfterCall := range []bool{false, true} {
+		for _, failure := range []error{
+			invocation.NewResultUnknown(secret),
+			invocation.NewResultUnknown(hostileError{}),
+			fmt.Errorf("private-wrapper-canary: %w", invocation.NewResultUnknown(secret)),
+			invocation.NewSemanticError("invalid_credentials", invocation.NewResultUnknown(secret)),
+		} {
+			r := facts()
+			ctx, cancel := context.WithCancel(context.Background())
+			v, err := verifiedstate.New(sessionFunc(func(context.Context, verifyv1.Request) (verifyv1.Response, error) {
+				if cancelAfterCall {
+					cancel()
+				}
+				return r, failure
+			}), options(r))
+			if err != nil {
+				t.Fatal(err)
+			}
+			next, s, err := v.Verify(ctx)
+			cancel()
+			if next != ctx || s != (verifiedstate.Subject{}) || err == nil {
+				t.Fatal("uncertain call created trust")
+			}
+			if invocation.CompletionOf(err) != invocation.CompletionResultUnknown {
+				t.Fatal("verification erased uncertainty")
+			}
+			var marker *invocation.ResultUnknownError
+			if !errors.As(err, &marker) {
+				t.Fatal("redaction discarded the explicit uncertainty marker")
+			}
+			if cancelAfterCall && !errors.Is(err, context.Canceled) {
+				t.Fatal("lost safe cancellation identity")
+			}
+			if errors.Is(err, secret) {
+				t.Fatal("retained private cause")
+			}
+			for cause := err; cause != nil; cause = errors.Unwrap(cause) {
+				if strings.Contains(fmt.Sprintf("%v %+v %#v", cause, cause, cause), "canary") {
+					t.Fatal("error chain leaked private cause")
+				}
+			}
+		}
+	}
+}
+
 type hostileError struct{}
 
 func (hostileError) Error() string { panic("private-error-canary") }
@@ -209,7 +256,7 @@ func TestVerificationFailuresAndRedaction(t *testing.T) {
 		if _, ok := verifiedstate.FromContext(next); ok {
 			t.Fatal("error created state")
 		}
-		if strings.Contains(fmt.Sprintf("%v %+v %#v", err, err, err), canary) || errors.Unwrap(err) != nil {
+		if strings.Contains(fmt.Sprintf("%v %+v %#v", err, err, err), canary) || errors.Is(err, failure) {
 			t.Fatal("retained private cause")
 		}
 	}

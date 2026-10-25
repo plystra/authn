@@ -121,10 +121,10 @@ func (v *Verifier) Verify(ctx context.Context) (context.Context, Subject, error)
 	}
 	response, err := call(v.binding, ctx)
 	if failure := ctx.Err(); failure != nil {
-		return fail(contextFailure(failure))
+		return fail(preserveUncertainty(contextFailure(failure), err))
 	}
 	if err != nil {
-		return fail(safeFailure(err))
+		return fail(preserveUncertainty(safeFailure(err), err))
 	}
 	subject := Subject{Issuer: response.Issuer, Kind: SubjectKind(response.SubjectKind), ID: response.SubjectID}
 	if !validSubject(subject) || !identifier(response.SessionID) || !identifier(response.Audience) || response.Issuer != v.options.Issuer || response.Audience != v.options.Audience || response.SubjectRevision == 0 || response.SessionRevision == 0 {
@@ -170,9 +170,6 @@ func safeFailure(err error) error {
 		if e.Code().Valid() {
 			safe, invalid := invocation.NewError(e.Code(), "authn.session_verification_failed")
 			if invalid == nil {
-				if e.Completion() == invocation.CompletionResultUnknown {
-					return invocation.NewResultUnknown(safe)
-				}
 				return safe
 			}
 		}
@@ -190,6 +187,16 @@ func safeFailure(err error) error {
 		return err
 	}
 	return ErrVerification
+}
+
+func preserveUncertainty(safe, original error) error {
+	// Kernel's bounded, panic-safe traversal never formats private causes and
+	// treats an incomplete traversal conservatively. Retain only its certainty,
+	// including when cancellation takes precedence over the primary failure.
+	if original != nil && invocation.CompletionOf(original) == invocation.CompletionResultUnknown {
+		return invocation.NewResultUnknown(safe)
+	}
+	return safe
 }
 
 func contextFailure(err error) error {
